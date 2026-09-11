@@ -1,0 +1,4 @@
+# Live VAD uses this version's bundled Silero v6 ONNX interface.
+faster-whisper==1.2.1
+sounddevice>=0.5,<0.6
+

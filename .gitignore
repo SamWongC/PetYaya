@@ -1,0 +1,36 @@
+# Python environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Private state, downloaded models and credentials
+/software/data/
+/software/models/
+.env
+.env.*
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.pem
+*.key
+
+# Recordings and local diagnostic artifacts
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+*.log
+.DS_Store
+Thumbs.db

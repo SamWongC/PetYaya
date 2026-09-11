@@ -1,0 +1,11 @@
+[project]
+name = "pet-yaya"
+version = "0.1.0"
+description = "Hardware-independent software core for the Pet Yaya companion robot"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.unittest]
+start-directory = "tests"
+
+
