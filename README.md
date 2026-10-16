@@ -8,13 +8,30 @@ The engineering emphasis is on separating conversational intelligence from deter
 
 **Status:** software prototype; Chinese-language interaction; Windows voice integration; no physical robot connected. This is not a finished consumer product or a validated child-safety system.
 
+## Explore the prototype
+
+Start with the [two-minute rules-only demo](DEMO.md) to inspect memory approval without installing a language model. Then read the [architecture](PROJECT_STRUCTURE.md) or the [recorded verification scope](TESTING.md). Voice and local-model integration are optional extensions.
+
+```mermaid
+flowchart LR
+    A[Typed input or recorded speech] --> B[Application orchestrator]
+    B --> C[Rules or local language model]
+    C --> D[Validate response and proposed actions]
+    D --> E[Console and optional speech]
+    B --> F[Pending memory proposal]
+    F --> G{User approval}
+    G -->|Approved| H[(SQLite memory)]
+    G -->|Rejected| I[Discard proposal]
+```
+
+The diagram describes the software architecture. It does not depict a connected physical robot.
+
 ## Documentation
 
 - [Project structure and architecture](PROJECT_STRUCTURE.md)
 - [Installation and running](RUNNING.md)
 - [Testing and demonstration](TESTING.md)
 - [Next steps and acceptance criteria](ROADMAP.md)
-- [GitLab preparation checklist](GITLAB_PREPARATION.md)
 
 This repository contains the runnable software prototype, automated tests, launch scripts and English documentation. Run commands from this repository's `software/` directory as described below. Personal databases, recordings, credentials, downloaded model weights and virtual environments are intentionally excluded; optional dependencies and models must be installed locally.
 
@@ -73,3 +90,17 @@ On **2026-09-11**, the automated suite was rerun from this source snapshot on Wi
 ## Next milestone
 
 Reduce perceived voice-response latency with cancellable sentence-level speech output, while preserving the existing distinction between previewed text and committed conversation state. The [roadmap](ROADMAP.md) defines this and subsequent milestones without claiming they are already implemented.
+
+
+---
+
+## 中文导览
+
+Pet Yaya 是与硬件解耦的陪伴机器人软件原型，目前以中文交互为主，尚未连接实体机器人。项目把模型生成与确定性的记忆审批、状态更新、取消和动作校验分开。
+
+- [两分钟演示](DEMO.md)：不用模型或硬件，检查记忆提出、批准和持久化。
+- [运行指南](RUNNING.md)：规则模式、本地模型与可选语音。
+- [架构说明](PROJECT_STRUCTURE.md)：模块关系和关键设计选择。
+- [测试记录](TESTING.md)：现有自动化测试的范围及边界；不是本次文档更新重新执行的测试结果。
+
+历史发布准备记录保留在 [GITLAB_PREPARATION.md](GITLAB_PREPARATION.md)，不作为启动入口。
